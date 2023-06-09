@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"goCode/channalDemo/service"
+)
 
 func main() {
 	//定义一个可以存放三个数字的管道
@@ -23,4 +26,16 @@ func main() {
 	//管道数据取出
 	num2 := <-channa
 	fmt.Println("num=", num2, len(channa), cap(channa))
+
+	//管道便利关闭
+	channalFor := service.GetChannalFor()
+	channalFor.ChannalFor()
+
+	//管道、协程结合使用
+	// channalDeo := service.GetChannalDemo()
+	// channalDeo.Work()
+
+	//求素数
+	chanSushu := service.GetChannalSushu()
+	chanSushu.Sushu(8000)
 }
