@@ -6,6 +6,17 @@ import (
 )
 
 func main() {
+
+	//只写管道
+	var channaWrite chan<- int
+	channaWrite = make(chan<- int, 3)
+	channaWrite <- 3
+	//只读管道应用
+
+	var chanRead <-chan int
+	chanRead = make(<-chan int, 3)
+	num3 := <-chanRead
+	fmt.Println(num3)
 	//定义一个可以存放三个数字的管道
 
 	var channa chan int
